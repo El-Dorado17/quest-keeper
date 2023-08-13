@@ -1,3 +1,20 @@
+<h2>Hey!</h2>
+<br>
+<h5>Have you ever noticed that the majority of gaming systems don't keep an in-game time log?</h5>
+<h5>What did the pilgrims do before the X-Box 360 introduced achievement hunting?</h5>
+<br>
+<p>I love playing old games; but now that I play sporadically, I tend to forget where I left off...</p>
+<p>Did I unlock <b>ALL</b> the characters?</p>
+<p>How many achievements were there again?</p>
+<p>What system was I even playing that on?!</p>
+<p>(I'm very guilty of this since I have owned a certain RPG roughly 9 diffeent times across 5 platforms...)</p>
+<p>With Quest Keeper, I strive to provide an application for users to track game progress across all of their platforms!</p>
+<h4>Check out the wire frames below!:</h4>
+<ul>
+  <li>link will be here asap</li>
+</ul>
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

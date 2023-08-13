@@ -1,7 +1,6 @@
 <h2>Hey!</h2>
-<br>
-<h5>Have you ever noticed that the majority of gaming systems don't keep an in-game time log?</h5>
-<h5>What did the pilgrims do before the X-Box 360 introduced achievement hunting?</h5>
+<h3>Have you ever noticed that the majority of gaming systems don't keep an in-game time log?</h3>
+<h3>What did the pilgrims do before the X-Box 360 introduced achievement hunting?</h3>
 <br>
 <p>I love playing old games; but now that I play sporadically, I tend to forget where I left off...</p>
 <p>Did I unlock <b>ALL</b> the characters?</p>

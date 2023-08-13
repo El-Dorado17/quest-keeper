@@ -8,11 +8,13 @@
   <li><p>How many achievements were there again?</p></li>
   <li><p>What system was I even playing that on?!</p></li>
 </ul>
-<p>(I'm very guilty of this since I have owned a certain RPG roughly 9 diffeent times across 5 platforms...)</p>
-<p>With Quest Keeper, I strive to provide an application for users to track game progress across all of their platforms!</p>
+<p>(I'm very guilty of this since I have owned a certain RPG roughly 9 different times across 5 platforms...)</p>
+<p>With Quest Keeper, I strive to provide an application for users to track game progress across all of their favorite sytmes!</p>
 <h4>Check out the wire frames below!:</h4>
 <ul>
-  <li>link will be here asap</li>
+  <li>link will be here asap (game view)</li>
+  <li>and here (add game view)</li>
+  <li>aaand here (all users, maybe?)</li>
 </ul>
 
 

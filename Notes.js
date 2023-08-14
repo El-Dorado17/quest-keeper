@@ -8,8 +8,4 @@ and adjusts to its width and height
 
 
 ! this note was created in dev branch
-
-
-
-
 */

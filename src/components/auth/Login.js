@@ -19,7 +19,7 @@ export const Login = () => {
                         id: user.id
                     }))
 
-                    navigate("/cards") //!Navigate somehwere immediately after logging in
+                    navigate("/") //!Navigate somehwere immediately after logging in
                 }
                 else {
                     window.alert("Sorry Muchacho... Try something else!")

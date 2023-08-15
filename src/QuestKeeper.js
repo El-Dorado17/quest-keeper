@@ -7,6 +7,7 @@ import { Authorized } from "./components/views/Authorized";
 import { NavBar } from "./components/nav/NavBar";
 import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
+import { ApplicationViews } from "./components/views/ApplicationViews";
 
 export const QuestKeeper = () => {
   return <Routes>
@@ -14,13 +15,13 @@ export const QuestKeeper = () => {
     <Route path="/register" element={<Register/>} />
 
     <Route path="*" element={
-      <Authorized>
-        <>
-          <NavBar/>
-          {/* <ApplicationViews/> */}
-        </>
-      </Authorized>
-    } />
+        <Authorized>
+          <>
+            <NavBar/>
+            <ApplicationViews/>
+          </>
+        </Authorized>
+      }/>
     </Routes>
 }
 

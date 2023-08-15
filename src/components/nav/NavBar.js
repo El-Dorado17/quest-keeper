@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
-//import "./NavBar.css"
+import "./NavBar.css"
 
 export const NavBar = () => {
     const navigate = useNavigate()
@@ -7,7 +7,15 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/cards">Cards</Link>
+                <Link className="navbar__link" to="/gamelist">Games</Link>
+            </li>
+
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/gameform">Add a Game</Link>
+            </li>
+            
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/allposts">View all users games</Link>
             </li>
             {
                 localStorage.getItem("quest_user")

@@ -7,12 +7,13 @@ export const GameForm=()=> {
   const [card, setCard] = useState({
     id: 1,
     platform: 0,
-    title:" ",
-    achiements: 0,
+    title:"",
+    achievements: 0,
     hours: 0,
     storyComplete: false,
     fullyFinished: false,
-    postedByUser: 0
+    postedByUser: 0,
+    notes: ""
   })
 
   const [cards, setCards] = useState([])
@@ -46,16 +47,17 @@ export const GameForm=()=> {
 
     const cardObjectToSendToAPI = {
       cardId: card.id,
-      word: card.word,
-      exampleSentence: card.exampleSentence,
-      translatedWord: card.translatedWord,
-      translatedExampleSentence: card.translatedExampleSentence,
-      categoryId: card.categoryId,
-      formal: card.formal,
+      platform: card.platform,
+      title: card.title,
+      achievements: card.achievements,
+      hours: card.hours,
+      storyComplete: card.storyComplete,
+      fullyFinished: card.fullyFinished,
+      notes: card.notes,
     };
 
     // TODO: Perform the fetch() to POST the object to the API
-    return fetch("http://localhost:8088/initialIndexCards", {
+    return fetch("http://localhost:8088/cards", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,7 +66,7 @@ export const GameForm=()=> {
     })
       .then((response) => response.json())
       .then(() => {
-        navigate("/cards"); //! idk what this means yet, find out after lunch. also fix
+        navigate("/gamelist"); 
       });
   };
 
@@ -78,6 +80,7 @@ export const GameForm=()=> {
     
   return (
     <form className="gameForm">
+
       <h2 className="gameform_Title">Start a New Game</h2>
 
     <fieldset>
@@ -85,24 +88,137 @@ export const GameForm=()=> {
         <label htmlFor='platform'>Platform:</label>
         <div></div>
         <select value={card.platform}
-        onChange={(e)=>{const copy = {...card}
-        copy.platform = parseInt(e.target.value)
-        setCard(copy)
-      }}
-      >
-        <option value="placeholder">Select a platform</option>
-        {platforms.map((platform)=>{
-          return(
-            <option value={platform.id} key={platform.id}>
-              {platform.id}) {platform.name}
-            </option>
-          )
-        })}
-      </select>
+            onChange={(e)=>{const copy = {...card}
+            copy.platform = parseInt(e.target.value)
+            setCard(copy)
+          }}
+          >
+            <option value="placeholder">Select a platform</option>
+            {platforms.map((platform)=>{
+              return(
+                <option value={platform.id} key={platform.id}>
+                  {platform.id}) {platform.name}
+                </option>
+              )
+            })}
+        </select>
       </div>
     </fieldset>
 
+    <fieldset>
+      <div className='form-group'>
+        <label htmlFor='title'>Title: </label>
+        <input
+          required
+          autoFocus
+          type="text"
+          className='form-control'
+          placeholder="Super Monkey Ball"
+          value={card.title}
+          onChange={(e)=>{
+            const copy = { ...card };
+            copy.title = e.target.value;
+            setCard(copy);
+          }}
+        />
+      </div>
+    </fieldset>
 
+    <fieldset>
+      <div className='form-group'>
+        <label htmlFor='achievements'>Achievements: </label>
+        
+        <input
+        required
+        autoFocus
+        type="number"
+        placeholder='17'
+        className='form-control'
+        value={card.achievements}
+        onChange={(e)=>{
+          const copy = { ...card }
+          copy.achievements = e.target.value
+          setCard(copy)
+        }}
+        />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div className='form-group'>
+        <label htmlFor='hours'>Playtime: </label>
+        
+        <input
+        required
+        autoFocus
+        type="number"
+        className='form-control'
+        placeholder='10,000'
+        value={card.hours}
+        onChange={(e)=>{
+          const copy = { ...card }
+          copy.hours = e.target.value
+          setCard(copy)
+        }}
+        /> hours...
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div className='form-group'>
+        <label htmlFor='story'>Story Complete?</label>
+        <input
+        type='checkbox'
+        value={card.storyComplete}
+        onChange={(evt) => {
+          const copy = { ...card };
+          copy.storyComplete = evt.target.checked;
+          setCard(copy);
+        }}
+         />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div className='form-group'>
+        <label htmlFor='fully'>Game fully finished?</label>
+        <input
+        type='checkbox'
+        value={card.fullyFinished}
+        onChange={(evt) => {
+          const copy = { ...card };
+          copy.fullyFinished = evt.target.checked;
+          setCard(copy);
+        }}
+         />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div className='form-group'>
+        <label htmlFor='notes'> Player Notes: </label>
+        <input
+          required
+          autoFocus
+          type="text"
+          className='form-control'
+          placeholder='"In the shadows, to the left"'
+          value={card.notes}
+          onChange={(e)=>{
+            const copy = { ...card };
+            copy.notes = e.target.value;
+            setCard(copy);
+          }}
+        />
+      </div>
+    </fieldset>
+
+    <button
+        onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+        className="create_button"
+      >
+        Add to My Games
+      </button>
 
     </form>
 

@@ -7,16 +7,17 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/gamelist">Games</Link>
-            </li>
-
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/gameform">Add a Game</Link>
+                <Link className="navbar__link" to="/allposts">Home/View All Games</Link>
             </li>
             
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/allposts">View all users games</Link>
+                <Link className="navbar__link" to="/gamelist">My Games</Link>
             </li>
+
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/gameform">Start a New Game</Link>
+            </li>
+            
             {
                 localStorage.getItem("quest_user")
                     ? <li className="navbar__item navbar__logout">

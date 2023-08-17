@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 export const GameForm=()=> {
 
   const [card, setCard] = useState({
-    id: 1,
+    id: 0,
     platform: 0,
     title:"",
     achievements: 0,
@@ -79,21 +79,23 @@ export const GameForm=()=> {
 
     
   return (
-    <form className="gameForm">
+    <form className="border border-black w-1/2 border rounded-lg p-2 mx-auto">
 
-      <h2 className="gameform_Title">Start a New Game</h2>
+
+      <h2 className="border border-black bg-green-400 text-center py-2 rounded-t-lg font-semibold">Start a New Game</h2>
 
     <fieldset>
-      <div className='form-group'>
-        <label htmlFor='platform'>Platform:</label>
+      <div className='my-4'>
+        <label htmlFor='platform' className="block font-semibold">Platform:</label>
         <div></div>
         <select value={card.platform}
             onChange={(e)=>{const copy = {...card}
             copy.platform = parseInt(e.target.value)
             setCard(copy)
           }}
+          className="w-full border border-black rounded px-2 py-1 mt-1"
           >
-            <option value="placeholder">Select a platform</option>
+            <option value="placeholder" className=''>Select a platform...</option>
             {platforms.map((platform)=>{
               return(
                 <option value={platform.id} key={platform.id}>
@@ -106,14 +108,14 @@ export const GameForm=()=> {
     </fieldset>
 
     <fieldset>
-      <div className='form-group'>
-        <label htmlFor='title'>Title: </label>
+      <div className='pt-5 '>
+        <label htmlFor='title' className='font-semibold'>Title: </label>
         <input
           required
           autoFocus
           type="text"
-          className='form-control'
-          placeholder="Super Monkey Ball"
+          className='border border-black rounded w-1/2'
+          placeholder="  Portal 2 "
           value={card.title}
           onChange={(e)=>{
             const copy = { ...card };
@@ -125,7 +127,7 @@ export const GameForm=()=> {
     </fieldset>
 
     <fieldset>
-      <div className='form-group'>
+      <div className='pt-5 font-semibold'>
         <label htmlFor='achievements'>Achievements: </label>
         
         <input
@@ -133,7 +135,7 @@ export const GameForm=()=> {
         autoFocus
         type="number"
         placeholder='17'
-        className='form-control'
+        className='border border-black'
         value={card.achievements}
         onChange={(e)=>{
           const copy = { ...card }
@@ -145,15 +147,15 @@ export const GameForm=()=> {
     </fieldset>
 
     <fieldset>
-      <div className='form-group'>
+      <div className='pt-5 font-semibold'>
         <label htmlFor='hours'>Playtime: </label>
         
         <input
         required
         autoFocus
         type="number"
-        className='form-control'
-        placeholder='10,000'
+        className='border border-black w-1/6'
+        placeholder=' 10,000'
         value={card.hours}
         onChange={(e)=>{
           const copy = { ...card }
@@ -165,7 +167,7 @@ export const GameForm=()=> {
     </fieldset>
 
     <fieldset>
-      <div className='form-group'>
+      <div className='pt-5 font-semibold'>
         <label htmlFor='story'>Story Complete?</label>
         <input
         type='checkbox'
@@ -180,7 +182,7 @@ export const GameForm=()=> {
     </fieldset>
 
     <fieldset>
-      <div className='form-group'>
+      <div className='pt-5 font-semibold'>
         <label htmlFor='fully'>Game fully finished?</label>
         <input
         type='checkbox'
@@ -195,13 +197,13 @@ export const GameForm=()=> {
     </fieldset>
 
     <fieldset>
-      <div className='form-group'>
-        <label htmlFor='notes'> Player Notes: </label>
-        <input
+      <div className='pt-5 pb-5 '>
+        <label htmlFor='notes' className='font-semibold'> Game Notes: </label>
+        <div></div>
+        <textarea 
           required
           autoFocus
-          type="text"
-          className='form-control'
+          className='w-3/4 p-2 border  border-black rounded '
           placeholder='"In the shadows, to the left"'
           value={card.notes}
           onChange={(e)=>{
@@ -215,7 +217,7 @@ export const GameForm=()=> {
 
     <button
         onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-        className="create_button"
+        className="bg-red-400 hover:bg-red-500 text-white font-semibold py-2 px-4 rounded my-4"
       >
         Add to My Games
       </button>

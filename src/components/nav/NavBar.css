@@ -1,4 +1,16 @@
 .navbar{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    height: 70px;
 }
+
+.navbar__item {
+    flex-basis: 20%;
+    list-style-type: none;
+    padding-top: 27px;
+}
+
+.navbar__logout {
+    margin-left: auto;
+}
+

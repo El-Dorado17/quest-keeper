@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 export const GameForm=()=> {
 
   const [card, setCard] = useState({
-    id: 0,
     platform: 0,
     title:"",
     achievements: 0,
@@ -20,9 +19,12 @@ export const GameForm=()=> {
 
   const [platforms, setPlatforms] = useState([])
 
+  const [users, setUsers] = useState([])
+
   const navigate = useNavigate()
 
-
+  const localQuestUser = localStorage.getItem("quest_user")
+  const questUserObject = JSON.parse(localQuestUser)
 
   /*
     !Destructured Platforms
@@ -40,19 +42,30 @@ export const GameForm=()=> {
       });
   }, []);
 
+  useEffect(() => {
+    fetch("http://localhost:8088/users")
+      .then((response) => response.json())
+      .then((userArray) => {
+        setUsers(userArray);
+      });
+  }, []);
+
 
   const handleSaveButtonClick = (event) => {
     event.preventDefault();
 
+    const userId = users.id;
+
 
     const cardObjectToSendToAPI = {
-      cardId: card.id,
+      id: card.id,
       platform: card.platform,
       title: card.title,
       achievements: card.achievements,
       hours: card.hours,
       storyComplete: card.storyComplete,
       fullyFinished: card.fullyFinished,
+      postedByUser: questUserObject,
       notes: card.notes,
     };
 

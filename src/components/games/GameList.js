@@ -8,6 +8,7 @@ export const GameList=()=> {
   const [cards, setCards] = useState([])
   const [filteredCards, setFilteredCards] = useState([])
   const [platforms, setPlatforms] = useState([])
+  const [users, setUsers] = useState([])
 
   const navigate = useNavigate()
 
@@ -39,6 +40,14 @@ export const GameList=()=> {
     [] // When this array is empty, you are observing initial component state
   );
 
+  useEffect(() => {
+    fetch("http://localhost:8088/users")
+      .then((response) => response.json())
+      .then((userArray) => {
+        setUsers(userArray);
+      });
+  }, []);
+
 
 
 
@@ -46,12 +55,12 @@ export const GameList=()=> {
     
   return (
     <>
-      <h2 className='text-2xl font-bold mb-4'>My games:</h2>
-      
+      <h2 className='text-2xl font-bold mb-4'>Here are {questUserObject.id}'s games:</h2>
       <article className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {cards.map((card, index) => {
           return (
             <section className='border border-gray-700 p-4 rounded-lg shadow-lg' key={card.id}>
+              
               <div className='text-green-500 font-semibold'>
                 Platform: {platforms.find(platform => platform.id === card.platform)?.name}
                 <br/>
@@ -61,7 +70,7 @@ export const GameList=()=> {
               <div className='mt-2'>
                 <p>0 out of {card.achievements} achievements</p>
                 <p>So far, I've played {card.hours} hours...</p>
-                <p>Main Story Complete?: {card.storycomplete ? 'Heck yeah!' : 'Not yet'}</p>
+                <p>Main Story Complete?: {card.storyComplete ? 'Heck yeah!' : 'Not yet'}</p>
                 <p>Fully Finished?: {card.fullyFinished ? 'HELL YEAH!' : 'Nope'}</p>
               </div>
   
@@ -77,3 +86,40 @@ export const GameList=()=> {
   );
   
 }
+/*
+
+(
+    <>
+      <h2 className='text-2xl font-bold mb-4'>Here are {questUserObject.id}'s games:</h2>
+      <article className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+        {cards.map((card, index) => {
+          return (
+            users.id === questUserObject.id ? (
+              <section className='border border-gray-700 p-4 rounded-lg shadow-lg' key={card.id}>
+                
+                <div className='text-green-500 font-semibold'>
+                  Platform: {platforms.find(platform => platform.id === card.platform)?.name}
+                  <br/>
+                  Game: {card.title}
+                </div>
+    
+                <div className='mt-2'>
+                  <p>0 out of {card.achievements} achievements</p>
+                  <p>So far, I've played {card.hours} hours...</p>
+                  <p>Main Story Complete?: {card.storyComplete ? 'Heck yeah!' : 'Not yet'}</p>
+                  <p>Fully Finished?: {card.fullyFinished ? 'HELL YEAH!' : 'Nope'}</p>
+                </div>
+    
+                <div className='border border-gray-500 rounded-lg mt-4'>
+                  Notes:
+                  <p className='text-gray-600'>{card.notes}</p>
+                </div>
+              </section>
+             ) : null
+          );
+        })}
+      </article>
+    </>
+  );
+
+  */

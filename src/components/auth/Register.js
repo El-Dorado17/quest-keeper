@@ -22,8 +22,7 @@ export const Register = (props) =>{ //props as a parameter?
         .then(createdUser => {
             if (createdUser.hasOwnProperty("id")) {
                 localStorage.setItem("quest_user", JSON.stringify({
-                    id: createdUser.id,
-                    staff: createdUser.isStaff
+                    id: createdUser.id
                 }))
 
                 navigate("/")
@@ -54,33 +53,58 @@ export const Register = (props) =>{ //props as a parameter?
     }
 
     return (
-        <main style={{ textAlign: "center" }}>
-            <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Quest Keeper</h1>
-                <h4>Have you ever noticed that the majority of gaming systems don't keep an in-game time log?</h4>
-                <h4>What did the pilgrims do before Microsoft introduced achievement hunting?</h4>
-                <h4>With Quest Keeper, I strive to provide an application (eventually mobile!) for
-                    users to track game progress across all of their favorite games and systems!</h4>
+    <main className="bg-gray-100 min-h-screen flex justify-center items-center">
+      <form className="bg-white w-full max-w-md p-8 rounded-lg shadow-md">
+        <h1 className="text-3xl font-semibold mb-4">Register for Quest Keeper</h1>
+        <p className="text-gray-600 text-sm mb-6">
+        </p>
 
-                <fieldset>
-                    <label htmlFor="fullName"> Full Name </label>
-                    <input onChange={updateUser}
-                        type="text" id="fullName" className="form-control"
-                        placeholder="Enter your name" required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="email"> Email address </label>
-                    <input onChange={updateUser}
-                        type="email" id="email" className="form-control"
-                        placeholder="Email address" required />
-                </fieldset>
-                <fieldset>
-                    <button type="submit"> Register </button>
-                </fieldset>
-                <section className="link--register">
-                <Link to="/login">Login</Link>
-            </section>
-            </form>
-        </main>
-    )
+        <fieldset className="mb-4">
+          <label htmlFor="name" className="block font-semibold mb-1">
+            Full Name
+          </label>
+          <input
+            onChange={updateUser}
+            type="text"
+            id="name"
+            className="w-full py-2 px-3 border rounded"
+            placeholder="Enter your name"
+            required
+            autoFocus
+          />
+        </fieldset>
+
+        <fieldset className="mb-4">
+          <label htmlFor="email" className="block font-semibold mb-1">
+            Email address
+          </label>
+          <input
+            onChange={updateUser}
+            type="email"
+            id="email"
+            className="w-full py-2 px-3 border rounded"
+            placeholder="Email address"
+            required
+          />
+        </fieldset>
+
+        <fieldset>
+          <button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded w-full"
+            onClick={handleRegister}
+          >
+            Register
+          </button>
+        </fieldset>
+
+        <section className="mt-4 text-center">
+          Already have an account?{" "}
+          <Link to="/login" className="text-blue-500 hover:underline">
+            Login
+          </Link>
+        </section>
+      </form>
+    </main>
+  );
 }

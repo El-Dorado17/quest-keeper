@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import "./Games.css"
+//import "./Games.css"
 
 export const GameList=()=> {
   const [cards, setCards] = useState([])
@@ -46,33 +46,34 @@ export const GameList=()=> {
     
   return (
     <>
-      <h2>Your games:</h2>
+      <h2 className='text-2xl font-bold mb-4'>My games:</h2>
       
-      <article className='cards'>
-        {cards.map((card, index)=>{
-          return(
-            <section className='card' key={card.id}>
-              <div className='flip-card-front'>
+      <article className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+        {cards.map((card, index) => {
+          return (
+            <section className='border border-gray-700 p-4 rounded-lg shadow-lg' key={card.id}>
+              <div className='text-green-500 font-semibold'>
                 Platform: {platforms.find(platform => platform.id === card.platform)?.name}
                 <br/>
                 Game: {card.title}
-                <br/>
-                You have collected 0 out of {card.achievements} achievements
-                <br/>
-                So far you have played {card.hours} hours...
-                <br/>
-                story {card.storycomplete}
-                <br/>
-                fully finished {card.fullyFinished}
               </div>
-              <div className='flip-card-back'>
-                {card.notes} 
-                
+  
+              <div className='mt-2'>
+                <p>0 out of {card.achievements} achievements</p>
+                <p>So far, I've played {card.hours} hours...</p>
+                <p>Main Story Complete?: {card.storycomplete ? 'Heck yeah!' : 'Not yet'}</p>
+                <p>Fully Finished?: {card.fullyFinished ? 'HELL YEAH!' : 'Nope'}</p>
+              </div>
+  
+              <div className='border border-gray-500 rounded-lg mt-4'>
+                Notes:
+                <p className='text-gray-600'>{card.notes}</p>
               </div>
             </section>
-          )
+          );
         })}
       </article>
     </>
-  )
+  );
+  
 }

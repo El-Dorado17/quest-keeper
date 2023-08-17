@@ -12,7 +12,7 @@
 <p>With Quest Keeper, I strive to provide an application (eventually mobile!) for users to track game progress across all of their favorite systems!</p>
 <h4>Check out the wire frames below!:</h4>
 <ul>
-  <li>link will be here asap (game view)</li>
+  <li>https://wireframe.cc/rjqDuW</li>
   <li>and here (add game view)</li>
   <li>aaand here (all users, maybe?)</li>
 </ul>

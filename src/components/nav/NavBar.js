@@ -15,7 +15,7 @@ export const NavBar = () => {
             </li>
 
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/gameform">Start a New Game</Link>
+                <Link className="navbar__link" to="/gameform">Track a New Quest</Link>
             </li>
             
             {

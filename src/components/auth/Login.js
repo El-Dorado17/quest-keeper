@@ -16,7 +16,8 @@ export const Login = () => {
                 if (foundUsers.length === 1) {
                     const user = foundUsers[0]
                     localStorage.setItem("quest_user", JSON.stringify({
-                        id: user.id
+                        id: user.id,
+                        name: user.name
                     }))
 
                     navigate("/") //!Navigate somehwere immediately after logging in

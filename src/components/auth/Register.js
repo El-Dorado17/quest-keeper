@@ -22,7 +22,8 @@ export const Register = (props) =>{ //props as a parameter?
         .then(createdUser => {
             if (createdUser.hasOwnProperty("id")) {
                 localStorage.setItem("quest_user", JSON.stringify({
-                    id: createdUser.id
+                    id: createdUser.id,
+                    name: createdUser.name
                 }))
 
                 navigate("/")
@@ -61,14 +62,14 @@ export const Register = (props) =>{ //props as a parameter?
 
         <fieldset className="mb-4">
           <label htmlFor="name" className="block font-semibold mb-1">
-            Full Name
+            Name
           </label>
           <input
             onChange={updateUser}
             type="text"
             id="name"
             className="w-full py-2 px-3 border rounded"
-            placeholder="Enter your name"
+            placeholder="Your Name"
             required
             autoFocus
           />
@@ -83,7 +84,7 @@ export const Register = (props) =>{ //props as a parameter?
             type="email"
             id="email"
             className="w-full py-2 px-3 border rounded"
-            placeholder="Email address"
+            placeholder="Your E-Mail"
             required
           />
         </fieldset>

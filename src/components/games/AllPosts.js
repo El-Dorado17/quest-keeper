@@ -17,6 +17,7 @@ export const AllPosts = () =>{
   
     const localQuestUser = localStorage.getItem("quest_user")
     const questUserObject = JSON.parse(localQuestUser)
+//    const loggedInUserName = questUserObject.name; 
   
     useEffect(()=>{
       fetch("http://localhost:8088/cards") //!  ?_expand=platform   not working 
@@ -54,7 +55,6 @@ export const AllPosts = () =>{
   
   
   
-  
       
     return (
       <>
@@ -63,7 +63,7 @@ export const AllPosts = () =>{
           {cards.map((card, index) => {
             return (
               <section className='border border-gray-700 p-4 rounded-lg shadow-lg' key={card.id}>
-                
+                {/*//! INCORPORATE THIS AFTER FINISHING <div>Posted by: {}</div> */}
                 <div className='text-green-500 font-semibold'>
                   Platform: {platforms.find(platform => platform.id === card.platform)?.name}
                   <br/>

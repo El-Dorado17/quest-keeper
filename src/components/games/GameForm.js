@@ -95,7 +95,7 @@ export const GameForm=()=> {
     <form className="border border-black w-1/2 border rounded-lg p-2 mx-auto">
 
 
-      <h2 className="border border-black bg-green-400 text-center py-2 rounded-t-lg font-semibold">Start a New Game</h2>
+      <h2 className="border border-black bg-green-400 text-center py-2 rounded-t-lg font-semibold">Start Tracking a New Game</h2>
 
     <fieldset>
       <div className='my-4'>

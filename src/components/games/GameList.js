@@ -57,58 +57,6 @@ export const GameList=()=> {
 
 
 
-  const initialCount = parseInt(localStorage.getItem('count')) || 0
-  const [count, setCount] = useState(initialCount)
-
-  const increment = (cardId) => {
-    setCards((prevCards) =>
-      prevCards.map((card) =>
-        card.id === cardId
-          ? {
-              ...card,
-              count: card.count < card.achievements ? card.count + 1 : card.count,
-            }
-          : card,
-      )
-    );
-  };
-  
-  const decrement = (cardId) => {
-    setCards((prevCards) =>
-      prevCards.map((card) =>
-        card.id === cardId ? { ...card, count: Math.max(0, card.count - 1) } : card, alert('This number is cap') 
-      )
-    );
-  };
-  
-  
-  const reset = (cardId) => {
-    setCards((prevCards) =>
-      prevCards.map((card) =>
-        card.id === cardId ? { ...card, count: 0 } : card
-      )
-    );
-  };
-  
-
-  useEffect(()=>{
-    //update local storage when count changes
-    localStorage.setItem('count', count.toString())
-  }, [count])
-
-
-
-/*
-<button onClick={increment}> +1 </button> 
-<button onClick={decrement}> -1 </button>
-<button onClick={reset}> reset </button>
-
-*/
-
-
-
-
-
 
 
 
@@ -148,6 +96,12 @@ export const GameList=()=> {
   };
   
 
+  const editButton = (cardObj) =>{
+    return(
+      <button>Edit</button>
+    )
+  }
+
 
 
     
@@ -171,24 +125,7 @@ export const GameList=()=> {
               <p className="flex items-center space-x-2">
                 <span className="text-gray-600">{card.count} out of {card.achievements} achievements</span>
                   
-                  <button
-                    className="text-gray-500 hover:text-gray-700 focus:outline-none"
-                    onClick={() => increment(card.id)}
-                  >
-                    +
-                  </button>
-                  <button
-                    className="text-gray-500 hover:text-gray-700 focus:outline-none"
-                    onClick={() => decrement(card.id)}
-                  >
-                    -
-                  </button>
-                  <button
-                    className="text-gray-500 hover:text-gray-700 focus:outline-none"
-                    onClick={() => reset(card.id)}
-                  >
-                    Reset
-                  </button>
+              
               </p>
 
 
@@ -203,6 +140,9 @@ export const GameList=()=> {
               </div>
               <div className='self-end'>
                   {deleteButton(card)}
+              </div>
+              <div className='self-end'>
+                  {editButton(card)}
               </div>
             </section>
           );

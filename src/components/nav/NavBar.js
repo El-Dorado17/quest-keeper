@@ -5,9 +5,10 @@ export const NavBar = () => {
     const navigate = useNavigate()
 
     return (
+        <section className="bg-gradient-to-t from-pink-300 to-red-200">
         <ul className="navbar">    
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/">Home</Link>
+                <Link className="navbar__link pl-4" to="/home">Home</Link>
             </li>
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/allposts">Community</Link>
@@ -32,5 +33,6 @@ export const NavBar = () => {
                     : ""
             }
         </ul>
+        </section>
     )
 }

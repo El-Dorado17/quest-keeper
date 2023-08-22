@@ -20,7 +20,7 @@ export const Login = () => {
                         name: user.name
                     }))
 
-                    navigate("/") //!Navigate somehwere immediately after logging in
+                    navigate("/home") //!Navigate somehwere immediately after logging in
                 }
                 else {
                     window.alert("Sorry Muchacho... Try something else!")

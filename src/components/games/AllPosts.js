@@ -58,13 +58,14 @@ export const AllPosts = () =>{
       
     return (
       <>
-        <h2 className='text-2xl font-bold mb-4'>See what all users are playing:</h2>
-        <article className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+      <section className='bg-gradient-to-b from-pink-300 to-blue-400'>
+        <h2 className='text-2xl font-bold mb-4 pl-2 pt-2 '>Here's what everyone is playing!</h2>
+        <article className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pl-4 pr-4'>
           {cards.map((card, index) => {
             return (
-              <section className='border border-gray-700 p-4 rounded-lg shadow-lg' key={card.id}>
-                {/*//! INCORPORATE THIS AFTER FINISHING <div>Posted by: {}</div> */}
-                <div className='text-green-500 font-semibold'>
+              <section className={`border border-gray-700 p-4 rounded-lg shadow-lg ${card.fullyFinished ? 'bg-gradient-to-b from-red-200 to-pink-300' : 'bg-purple-100'}`} key={card.id}>
+              
+                <div className='text-black-500 font-semibold flex justify-end'>
                   Platform: {platforms.find(platform => platform.id === card.platform)?.name}
                   <br/>
                   Game: {card.title}
@@ -81,10 +82,12 @@ export const AllPosts = () =>{
                   Notes:
                   <p className='text-gray-600'>{card.notes}</p>
                 </div>
+                <div className='flex justify-center text-sm'>Player: {card.postedByUser.name}</div>
               </section>
             );
           })}
         </article>
+        </section>
       </>
     );
 }

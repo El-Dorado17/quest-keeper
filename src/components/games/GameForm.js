@@ -7,6 +7,7 @@ export const GameForm=()=> {
   const [card, setCard] = useState({
     platform: 0,
     title:"",
+    currentAchievements: 0,
     achievements: 0,
     hours: 0,
     storyComplete: false,
@@ -61,6 +62,7 @@ export const GameForm=()=> {
       id: card.id,
       platform: card.platform,
       title: card.title,
+      currentAchievements: card.currentAchievements,
       achievements: card.achievements,
       hours: card.hours,
       storyComplete: card.storyComplete,
@@ -92,10 +94,11 @@ export const GameForm=()=> {
 
     
   return (
+    <article className='bg-gradient-to-b from-pink-300 to-white-400'>
     <form className="border border-black w-1/2 border rounded-lg p-2 mx-auto">
 
 
-      <h2 className="border border-black bg-green-400 text-center py-2 rounded-t-lg font-semibold">Start Tracking a New Game</h2>
+      <h2 className="border border-black bg-white text-center py-2 rounded-t-lg font-semibold">Start Tracking a New Game</h2>
 
     <fieldset>
       <div className='my-4'>
@@ -141,21 +144,37 @@ export const GameForm=()=> {
 
     <fieldset>
       <div className='pt-5 font-semibold'>
-        <label htmlFor='achievements'>Achievements: </label>
+        <label htmlFor='achievements'>I have: </label>
         
         <input
         required
         autoFocus
         type="number"
         placeholder='17'
-        className='border border-black'
+        className='border border-black w-10'
+        value={card.currentAchievements}
+        onChange={(e)=>{
+          const copy = { ...card }
+          copy.currentAchievements = e.target.value
+          setCard(copy)
+        }}
+        /> out of 
+     
+        <label htmlFor='achievements'> </label>
+        
+        <input
+        required
+        autoFocus
+        type="number"
+        placeholder='17'
+        className='border border-black w-10'
         value={card.achievements}
         onChange={(e)=>{
           const copy = { ...card }
           copy.achievements = e.target.value
           setCard(copy)
         }}
-        />
+        /> Achievements
       </div>
     </fieldset>
 
@@ -236,6 +255,7 @@ export const GameForm=()=> {
       </button>
 
     </form>
+    </article>
 
   )
 }

@@ -3,6 +3,7 @@ import { Outlet, Route, Routes } from "react-router-dom"
 import { GameForm } from "../games/GameForm"
 import { GameList } from "../games/GameList"
 import { AllPosts } from "../games/AllPosts"
+import { HomePage } from "../home/HomePage"
 
 
 export const ApplicationViews = () => {
@@ -13,6 +14,7 @@ export const ApplicationViews = () => {
                     <Outlet />
                 </>
                 }>
+                    <Route path="home" element={ <HomePage/> }/>
                     <Route path="gameform" element={ <GameForm/> }/>
                     <Route path="gamelist" element={ <GameList /> } />
                     <Route path="allposts" element={ <AllPosts /> } />

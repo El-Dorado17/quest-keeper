@@ -96,26 +96,28 @@ export const GameList=()=> {
   };
   
 
-  const editButton = (cardObj) =>{
-    return(
-      <button>Edit</button>
-    )
-  }
-
+  const editButton = (cardObj) => {
+    return (
+      <button className="bg-cyan-300 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+        Edit
+      </button>
+    );
+  };
 
 
     
   return (
     <>
-      <h2 className='text-2xl font-bold mb-4'>{questUserObject.name}'s Games:</h2>
-      <article className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+    <section className='bg-gradient-to-b from-pink-300 to-blue-400'>
+      <h2 className='text-2xl font-bold mb-4 pl-2'>{questUserObject.name}'s Games:</h2>
+      <article className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pl-4 pr-4'>
       {cards
         .filter((card) => card.postedByUser.id === loggedInUserId)
         .map((card, index) => {
           return (            
-            <section className='border border-gray-700 p-4 rounded-lg shadow-lg' key={card.id}>
+            <section className={`border border-gray-700 p-4 rounded-lg shadow-lg ${card.fullyFinished ? 'bg-gradient-to-b from-red-200 to-pink-300' : 'bg-purple-100'}`} key={card.id}>
               
-              <div className='text-green-500 font-semibold'>
+              <div className='text-black-500 font-semibold flex justify-end'>
                 Platform: {platforms.find(platform => platform.id === card.platform)?.name}
                 <br/>
                 Game: {card.title}
@@ -123,7 +125,7 @@ export const GameList=()=> {
   
               <div className='mt-2'>
               <p className="flex items-center space-x-2">
-                <span className="text-gray-600">{card.count} out of {card.achievements} achievements</span>
+                <span className="text-gray-600">{card.currentAchievements} out of {card.achievements} achievements</span>
                   
               
               </p>
@@ -138,16 +140,16 @@ export const GameList=()=> {
                 Notes:
                 <p className='text-gray-600'>{card.notes}</p>
               </div>
-              <div className='self-end'>
-                  {deleteButton(card)}
-              </div>
-              <div className='self-end'>
+              <div className='flex justify-between pt-4'>
                   {editButton(card)}
+                  {deleteButton(card)}
+
               </div>
             </section>
           );
         })}
       </article>
+      </section>
     </>
   );
   

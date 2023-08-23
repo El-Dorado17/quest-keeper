@@ -36,7 +36,7 @@ export const EditForm = () => {
   };
 
   return (
-    <article className='bg-gradient-to-b from-pink-300 to-blue-400'>
+    <article className='bg-gradient-to-b from-pink-300 to-blue-400 min-h-screen'>
     <form className="border border-black w-1/2 border rounded-lg p-2 mx-auto">
       <h2 className="border border-black bg-blue-200 text-center py-2 rounded-t-lg font-semibold">Edit Game</h2>
       {/* Edit form fields similar to GameForm */}

@@ -58,12 +58,12 @@ export const AllPosts = () =>{
       
     return (
       <>
-      <section className='bg-gradient-to-b from-pink-300 to-blue-400'>
-        <h2 className='text-2xl font-bold mb-4 pl-2 pt-2 '>Here's what everyone is playing!</h2>
+      <section className='bg-gradient-to-b from-pink-300 to-blue-400 min-h-screen'>
+        <h2 className='text-2xl font-bold mb-4 pl-2 pt-2 '>Checkout what all users playing!</h2>
         <article className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pl-4 pr-4'>
           {cards.map((card, index) => {
             return (
-              <section className={`border border-gray-700 p-4 rounded-lg shadow-lg ${card.fullyFinished ? 'bg-gradient-to-b from-red-200 to-pink-300' : 'bg-purple-100'}`} key={card.id}>
+              <section className={`bg-gradient-to-b from-red-300 to-orange-100 p-4 rounded-lg shadow-lg  border-2 border-black ${card.fullyFinished ? 'border-4 border-black' : ''}`} key={card.id}>
               
                 <div className='text-black-500 font-semibold flex justify-end'>
                   Platform: {platforms.find(platform => platform.id === card.platform)?.name}
@@ -82,8 +82,15 @@ export const AllPosts = () =>{
                   Notes:
                   <p className='text-gray-600'>{card.notes}</p>
                 </div>
-                <div className='flex justify-center text-sm'>Player: {card.postedByUser.name}</div>
-              </section>
+                <div className='flex justify-center text-sm'>Posted by: {card.postedByUser.name}</div>
+                  {card.fullyFinished && (
+                    <div className='flex justify-center mt-3'> 
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-9 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                     </div>
+  )}
+</section>
             );
           })}
         </article>

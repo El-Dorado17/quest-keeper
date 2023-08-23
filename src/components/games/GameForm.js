@@ -94,8 +94,8 @@ export const GameForm=()=> {
 
     
   return (
-    <article className='bg-gradient-to-b from-pink-300 to-white-400'>
-    <form className="border border-black w-1/2 border rounded-lg p-2 mx-auto">
+    <article className='bg-gradient-to-b from-pink-300 to-blue-400 min-h-screen'>
+    <form className="border border-black w-1/2 border rounded-lg p-2 mx-auto bg-purple-100">
 
 
       <h2 className="border border-black bg-white text-center py-2 rounded-t-lg font-semibold">Start Tracking a New Game</h2>

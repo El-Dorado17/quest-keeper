@@ -108,14 +108,14 @@ export const GameList=()=> {
     
   return (
     <>
-    <section className='bg-gradient-to-b from-pink-300 to-blue-400'>
+    <section className='bg-gradient-to-b from-pink-300 to-blue-400 min-h-screen'>
       <h2 className='text-2xl font-bold mb-4 pl-2'>{questUserObject.name}'s Games:</h2>
       <article className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pl-4 pr-4'>
       {cards
         .filter((card) => card.postedByUser.id === loggedInUserId)
         .map((card, index) => {
           return (            
-            <section className={`border border-gray-700 p-4 rounded-lg shadow-lg ${card.fullyFinished ? 'bg-gradient-to-b from-red-200 to-pink-300' : 'bg-purple-100'}`} key={card.id}>
+            <section className={`bg-gradient-to-b from-red-300 to-orange-100 p-4 rounded-lg shadow-lg  border-2 border-black ${card.fullyFinished ? 'border-4 border-black' : ''}`} key={card.id}>
               
               <div className='text-black-500 font-semibold flex justify-end'>
                 Platform: {platforms.find(platform => platform.id === card.platform)?.name}
@@ -145,6 +145,13 @@ export const GameList=()=> {
                   {deleteButton(card)}
 
               </div>
+              {card.fullyFinished && (
+                    <div className='flex justify-center mt-3'> 
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-9 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                     </div>
+  )}
             </section>
           );
         })}

@@ -26,7 +26,7 @@ export const Register = (props) =>{ //props as a parameter?
                     name: createdUser.name
                 }))
 
-                navigate("/")
+                navigate("/home")
             }
         })
     }
@@ -57,6 +57,8 @@ export const Register = (props) =>{ //props as a parameter?
     <main className="min-h-screen bg-gradient-to-b from-pink-300 to-blue-500 flex justify-center items-center">
       <form className="bg-white w-full max-w-md p-8 rounded-lg shadow-md">
         <h1 className="text-3xl font-semibold mb-4">Register for Quest Keeper</h1>
+        <h2 className="text-lg mb-6">Q.K. is an application I designed to help my friends and I keep track of our gaming progress across all platforms!</h2>
+        <h2 className="text-lg mb-6">Email doesn't have to be real; just remember it or contact Ely to reset!</h2>
         <p className="text-gray-600 text-sm mb-6">
         </p>
 

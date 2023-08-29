@@ -62,7 +62,7 @@ export const Login = () => {
         to="/register"
         className="text-blue-500 hover:underline"
       >
-        Register (I won't send you emails!)
+        Register/About Quest Keeper (I won't send you emails!)
       </Link>
     </section>
   </section>

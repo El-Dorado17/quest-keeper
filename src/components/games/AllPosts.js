@@ -87,7 +87,7 @@ export const AllPosts = () =>{
                   Notes:
                   <p className='text-gray-600'>{card.notes}</p>
                 </div>
-                <div className='flex justify-center text-sm'>Posted by: {card.postedByUser.name}</div>
+                <div className='flex justify-center text-md'>Posted by: {card.postedByUser.name}</div>
                   {card.fullyFinished && (
                     <div className='flex justify-center mt-3'> 
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-9 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">

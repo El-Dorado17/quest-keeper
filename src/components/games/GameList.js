@@ -126,7 +126,7 @@ export const GameList=()=> {
   
               <div className='mt-2'>
               <p className="flex items-center space-x-2">
-                <span className="text-gray-600">{card.currentAchievements} out of {card.achievements} achievements</span>
+                <span >{card.currentAchievements} out of {card.achievements} achievements</span>
                   
               
               </p>

@@ -4,6 +4,6 @@ import { useNavigate } from 'react-router-dom'
 
 export const GameCard=()=> {
     /*
-        Nothing going on here... Just know, I LOVE YOU MIKAYLA DORADO!
+        Nothing going on here...
     */
 }

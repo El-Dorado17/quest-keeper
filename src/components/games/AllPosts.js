@@ -1,6 +1,11 @@
 /*
-This will house code for all users games as the intro page... MAYBE
+I LOVE YOU MIKAYLA DORADO!
+
+This will house code for all users games as the intro page... MAKE IT HAPPEN
 */
+
+
+
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'

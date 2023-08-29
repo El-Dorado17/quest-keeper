@@ -14,7 +14,6 @@
 <ul>
   <li>https://wireframe.cc/rjqDuW</li>
   <li>https://wireframe.cc/pqO9fn</li>
-  <li>aaand here (all users, maybe?)</li>
 </ul>
 
 

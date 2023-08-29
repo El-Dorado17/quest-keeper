@@ -98,7 +98,8 @@ export const GameList=()=> {
 
   const editButton = (cardObj) => {
     return (
-      <button className="bg-cyan-300 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+      <button onClick={() => navigate(`/editform/${cardObj.id}`)} // Pass card ID to the edit form route
+      className="bg-cyan-300 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded inline-flex items-center">
         Edit
       </button>
     );

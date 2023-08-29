@@ -29,7 +29,7 @@ export const Login = () => {
     }
 
     return (
-        <main className="bg-gray-100 min-h-screen flex justify-center items-center">
+        <main className="min-h-screen bg-gradient-to-b from-pink-300 to-blue-500 flex justify-center items-center">
   <section className="w-full max-w-md p-8 rounded-lg shadow-md bg-white">
     <form className="text-center" onSubmit={handleLogin}>
       <h1 className="text-3xl font-semibold mb-4">Welcome to Quest Keeper!</h1>

@@ -77,7 +77,7 @@ export const AllPosts = () =>{
                 </div>
     
                 <div className='mt-2'>
-                  <p>0 out of {card.achievements} achievements</p>
+                  <p>{card.currentAchievements} out of {card.achievements} achievements</p>
                   <p>So far, I've played {card.hours} hours...</p>
                   <p>Main Story Complete?: {card.storyComplete ? 'Heck yeah!' : 'Not yet'}</p>
                   <p>Fully Finished?: {card.fullyFinished ? 'HELL YEAH!' : 'Nope'}</p>

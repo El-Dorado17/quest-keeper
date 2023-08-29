@@ -54,7 +54,7 @@ export const Register = (props) =>{ //props as a parameter?
     }
 
     return (
-    <main className="bg-gray-100 min-h-screen flex justify-center items-center">
+    <main className="min-h-screen bg-gradient-to-b from-pink-300 to-blue-500 flex justify-center items-center">
       <form className="bg-white w-full max-w-md p-8 rounded-lg shadow-md">
         <h1 className="text-3xl font-semibold mb-4">Register for Quest Keeper</h1>
         <p className="text-gray-600 text-sm mb-6">

@@ -20,7 +20,7 @@ export const AllPosts = () =>{
 //    const loggedInUserName = questUserObject.name; 
   
     useEffect(()=>{
-      fetch("http://localhost:8088/cards") //!  ?_expand=platform   not working 
+      fetch("https://quest-keeper-api-esbux.ondigitalocean.app/cards") //!  ?_expand=platform   not working 
         .then((response) => response.json())
         .then((cardsArray) => {
           const updatedCardsArray = cardsArray.map((card) => ({
@@ -35,7 +35,7 @@ export const AllPosts = () =>{
   
     useEffect(
       () => {
-        fetch("http://localhost:8088/platforms")
+        fetch("https://quest-keeper-api-esbux.ondigitalocean.app/platforms")
           .then((response) => response.json())
           .then((platformArray) => {
             setPlatforms(platformArray);
@@ -45,7 +45,7 @@ export const AllPosts = () =>{
     );
   
     useEffect(() => {
-      fetch("http://localhost:8088/users")
+      fetch("https://quest-keeper-api-esbux.ondigitalocean.app/users")
         .then((response) => response.json())
         .then((userArray) => {
           setUsers(userArray);

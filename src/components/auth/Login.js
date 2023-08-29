@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom"
 //import "./Login.css"
 
 export const Login = () => {
-    const [email, set] = useState("ely@gmail.com")
+    const [email, set] = useState("example@gmail.com")
     const navigate = useNavigate()
 
     const handleLogin = (e) => {
         e.preventDefault()
 
-        return fetch(`http://localhost:8088/users?email=${email}`)
+        return fetch(`https://quest-keeper-api-esbux.ondigitalocean.app//users?email=${email}`)
             .then(res => res.json())
             .then(foundUsers => {
                 if (foundUsers.length === 1) {

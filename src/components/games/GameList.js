@@ -17,7 +17,7 @@ export const GameList=()=> {
   const loggedInUserId = questUserObject.id; 
 
   useEffect(()=>{
-    fetch("http://localhost:8088/cards?userId=${loggedInUserId}") 
+    fetch("https://quest-keeper-api-esbux.ondigitalocean.app/cards?userId=${loggedInUserId}") 
       .then((response) => response.json())
       .then((cardsArray) => {
         const updatedCardsArray = cardsArray.map((card) => ({
@@ -33,7 +33,7 @@ export const GameList=()=> {
 
   useEffect(
     () => {
-      fetch("http://localhost:8088/platforms")
+      fetch("https://quest-keeper-api-esbux.ondigitalocean.app/platforms")
         .then((response) => response.json())
         .then((platformArray) => {
           setPlatforms(platformArray);
@@ -43,7 +43,7 @@ export const GameList=()=> {
   );
 
   useEffect(() => {
-    fetch("http://localhost:8088/users")
+    fetch("https://quest-keeper-api-esbux.ondigitalocean.app/users")
       .then((response) => response.json())
       .then((userArray) => {
         setUsers(userArray);
@@ -65,10 +65,10 @@ export const GameList=()=> {
       <button
         className="DeleteButton bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded inline-flex items-center"
         onClick={() => {
-          fetch(`http://localhost:8088/cards/${cardObj.id}`, {
+          fetch(`https://quest-keeper-api-esbux.ondigitalocean.app/cards/${cardObj.id}`, {
             method: "DELETE",
           }).then(() => {
-            fetch("http://localhost:8088/cards")
+            fetch("https://quest-keeper-api-esbux.ondigitalocean.app/cards")
               .then((response) => response.json())
               .then((cardArray) => {
                 setCards(cardArray);

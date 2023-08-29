@@ -19,7 +19,7 @@ export const EditForm = () => {
   // Fetch card data based on cardId when component mounts
   useEffect(() => {
     // Fetch card data using cardId and update the state
-      fetch(`http://localhost:8088/cards/${cardId}`) //
+      fetch(`https://quest-keeper-api-esbux.ondigitalocean.app/cards/${cardId}`) //
         .then(response => response.json())
         .then(cardData => setCurrentCard(cardData));
   }, [cardId]);
@@ -28,7 +28,7 @@ export const EditForm = () => {
 
   // Fetch platforms data
   useEffect(() => {
-    fetch("http://localhost:8088/platforms")
+    fetch("https://quest-keeper-api-esbux.ondigitalocean.app/platforms")
       .then((response) => response.json())
       .then((platformArray) => {
         setPlatforms(platformArray);
@@ -41,7 +41,7 @@ export const EditForm = () => {
     event.preventDefault();
 
     // TODO: Perform the fetch() to update the card data
-    fetch(`http://localhost:8088/cards/${cardId}`, {
+    fetch(`https://quest-keeper-api-esbux.ondigitalocean.app/cards/${cardId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

@@ -4,6 +4,7 @@ import { GameForm } from "../games/GameForm"
 import { GameList } from "../games/GameList"
 import { AllPosts } from "../games/AllPosts"
 import { HomePage } from "../home/HomePage"
+import { EditForm } from "../games/EditForm"
 
 
 export const ApplicationViews = () => {
@@ -16,6 +17,7 @@ export const ApplicationViews = () => {
                 }>
                     <Route path="home" element={ <HomePage/> }/>
                     <Route path="gameform" element={ <GameForm/> }/>
+                    <Route path="editform/:cardId" element={ <EditForm/> }/>
                     <Route path="gamelist" element={ <GameList /> } />
                     <Route path="allposts" element={ <AllPosts /> } />
             </Route>

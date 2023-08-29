@@ -13,7 +13,7 @@
 <h4>Check out the wire frames below!:</h4>
 <ul>
   <li>https://wireframe.cc/rjqDuW</li>
-  <li>and here (add game view)</li>
+  <li>https://wireframe.cc/pqO9fn</li>
   <li>aaand here (all users, maybe?)</li>
 </ul>
 

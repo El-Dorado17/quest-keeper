@@ -83,9 +83,9 @@ export const AllPosts = () =>{
                   <p>Fully Finished?: {card.fullyFinished ? 'HELL YEAH!' : 'Nope'}</p>
                 </div>
     
-                <div className='border border-gray-500 rounded-lg mt-4'>
+                <div className='text-black-500 border border-black rounded-lg mt-4'>
                   Notes:
-                  <p className='text-gray-600'>{card.notes}</p>
+                  <p className='text-black-500'>{card.notes}</p>
                 </div>
                 <div className='flex justify-center text-md'>Posted by: {card.postedByUser.name}</div>
                   {card.fullyFinished && (
@@ -93,7 +93,7 @@ export const AllPosts = () =>{
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-9 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                     </div>
+                    </div>
   )}
 </section>
             );

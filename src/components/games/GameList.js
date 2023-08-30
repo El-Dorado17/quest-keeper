@@ -99,7 +99,7 @@ export const GameList=()=> {
   const editButton = (cardObj) => {
     return (
       <button onClick={() => navigate(`/editform/${cardObj.id}`)} // Pass card ID to the edit form route
-      className="bg-cyan-300 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+      className="bg-cyan-500 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded inline-flex items-center">
         Edit
       </button>
     );
@@ -137,9 +137,9 @@ export const GameList=()=> {
                 <p>Fully Finished?: {card.fullyFinished ? 'HELL YEAH!' : 'Nope'}</p>
               </div>
   
-              <div className='border border-gray-500 rounded-lg mt-4'>
+              <div className='border border-black rounded-lg mt-4'>
                 Notes:
-                <p className='text-gray-600'>{card.notes}</p>
+                <p className='text-black-600'>{card.notes}</p>
               </div>
               <div className='flex justify-between pt-4'>
                   {editButton(card)}

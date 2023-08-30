@@ -13,9 +13,15 @@
 <h4>Check out the wire frames below!:</h4>
 <ul>
   <li>https://wireframe.cc/rjqDuW</li>
-  <li>and here (add game view)</li>
-  <li>aaand here (all users, maybe?)</li>
+  <li>https://wireframe.cc/pqO9fn</li>
 </ul>
+
+<h3>Here's the link to visit! Tell me what you think!</h3>
+<p>https://quest-keeper-6cymc.ondigitalocean.app/register</p>
+
+<h2>This application was made with React, Tailwind, and JSON Server</h2>
+
+
 
 
 # Getting Started with Create React App

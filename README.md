@@ -16,9 +16,10 @@
   <li>https://wireframe.cc/pqO9fn</li>
 </ul>
 
-<h3>Here's the link to see the app run!</h3>
+<h3>Here's the link to visit! Tell me what you think!</h3>
 <p>https://quest-keeper-6cymc.ondigitalocean.app/register</p>
 
+<h2>This application was made with React, Tailwind, and JSON Server</h2>
 
 
 

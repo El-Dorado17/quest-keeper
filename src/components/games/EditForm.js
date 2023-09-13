@@ -4,6 +4,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 export const EditForm = () => {
   const { cardId } = useParams();
   const navigate = useNavigate();
+  const [validationError, setValidationError] = useState("");
+
   const [currentCard, setCurrentCard] = useState({
     platform: 0,
     title:"",
@@ -113,11 +115,22 @@ export const EditForm = () => {
         placeholder='17'
         className='border border-black w-10'
         value={currentCard.currentAchievements}
-        onChange={(e)=>{
-          const copy = { ...currentCard }
-          copy.currentAchievements = e.target.value
-          setCurrentCard(copy)
+        onChange={(e) => {
+          const newValue = parseInt(e.target.value);
+          if (newValue <= currentCard.achievements) {
+            const copy = { ...currentCard }
+            copy.currentAchievements = newValue;
+            setCurrentCard(copy);
+            setValidationError(""); // Clear validation error
+          } else {
+            setValidationError("Current achievements cannot be greater than total achievements.");
+          }
         }}
+        // onChange={(e)=>{
+        //   const copy = { ...currentCard }
+        //   copy.currentAchievements = e.target.value
+        //   setCurrentCard(copy)
+        // }}
         /> out of 
      
         <label htmlFor='achievements'> </label>
@@ -137,6 +150,7 @@ export const EditForm = () => {
         /> Achievements
       </div>
     </fieldset>
+    <p className="text-red-500">{validationError}</p> {/* Display validation error */}
 
     <fieldset>
       <div className='pt-5 font-semibold'>

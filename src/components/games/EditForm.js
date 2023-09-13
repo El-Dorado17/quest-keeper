@@ -162,7 +162,10 @@ export const EditForm = () => {
       <div className='pt-5 font-semibold'>
         <label htmlFor='story'>Story Complete?</label>
         <input
-        type='checkbox'
+        required // r?
+        autoFocus // r?
+        type="checkbox"
+        checked = {currentCard.storyComplete}
         value={currentCard.storyComplete}
         onChange={(evt) => {
           const copy = { ...currentCard };
@@ -177,7 +180,8 @@ export const EditForm = () => {
       <div className='pt-5 font-semibold'>
         <label htmlFor='fully'>Game fully finished?</label>
         <input
-        type='checkbox'
+        type="checkbox"
+        checked = {currentCard.fullyFinished}
         value={currentCard.fullyFinished}
         onChange={(evt) => {
           const copy = { ...currentCard };

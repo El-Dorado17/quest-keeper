@@ -10,6 +10,7 @@ export const GameList=()=> {
   const [platforms, setPlatforms] = useState([])
   const [users, setUsers] = useState([])
 
+
   const navigate = useNavigate()
 
   const localQuestUser = localStorage.getItem("quest_user")
@@ -133,13 +134,14 @@ export const GameList=()=> {
 
 
                 <p>So far, I've played {card.hours} hours...</p> 
-                <p>Main Story Complete?: {card.storyComplete ? 'Heck yeah!' : 'Not yet'}</p>
-                <p>Fully Finished?: {card.fullyFinished ? 'HELL YEAH!' : 'Nope'}</p>
+                {/* <p>Main Story Complete?: {card.storyComplete ? 'Heck yeah!' : 'Not yet'}</p> */}
+                <p>Fully Finished?: {card.fullyFinished ? 'YEAH!' : 'Not yet'}</p>
               </div>
-  
-              <div className='border border-black rounded-lg mt-4'>
-                Notes:
-                <p className='text-black-600'>{card.notes}</p>
+              <br></br>
+              <div>  Notes:</div>
+              <div className=' border border-black rounded-lg mt-4'>
+              
+                <textarea className='bg-red-200 rounded-lg w-full h-20'>{card.notes}</textarea>
               </div>
               <div className='flex justify-between pt-4'>
                   {editButton(card)}

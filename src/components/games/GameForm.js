@@ -16,7 +16,7 @@ export const GameForm=()=> {
     notes: ""
   })
 
-  const [cards, setCards] = useState([])
+  //const [cards, setCards] = useState([])
 
   const [platforms, setPlatforms] = useState([])
 
@@ -151,7 +151,7 @@ export const GameForm=()=> {
         autoFocus
         type="number"
         placeholder='17'
-        className='border border-black w-10'
+        className='border border-black w-20'
         value={card.currentAchievements}
         onChange={(e)=>{
           const copy = { ...card }
@@ -167,7 +167,7 @@ export const GameForm=()=> {
         autoFocus
         type="number"
         placeholder='17'
-        className='border border-black w-10'
+        className='border border-black w-20'
         value={card.achievements}
         onChange={(e)=>{
           const copy = { ...card }
@@ -198,7 +198,7 @@ export const GameForm=()=> {
       </div>
     </fieldset>
 
-    <fieldset>
+    {/* <fieldset>
       <div className='pt-5 font-semibold'>
         <label htmlFor='story'>Story Complete?</label>
         <input
@@ -211,7 +211,7 @@ export const GameForm=()=> {
         }}
          />
       </div>
-    </fieldset>
+    </fieldset> */}
 
     <fieldset>
       <div className='pt-5 font-semibold'>

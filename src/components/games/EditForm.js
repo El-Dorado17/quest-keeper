@@ -59,8 +59,8 @@ export const EditForm = () => {
 
   return (
     <article className='bg-gradient-to-b from-pink-300 to-blue-400 min-h-screen'>
-    <form className="border border-black w-1/2 border rounded-lg p-2 mx-auto">
-      <h2 className="border border-black bg-blue-200 text-center py-2 rounded-t-lg font-semibold">Edit Game</h2>
+    <form className="border border-black w-1/2 border rounded-lg p-2 mx-auto bg-purple-100">
+      <h2 className="border border-black bg-white text-center py-2 rounded-t-lg font-semibold">Edit Game</h2>
       
       <fieldset>
       <div className='my-4'>
@@ -113,7 +113,7 @@ export const EditForm = () => {
         autoFocus
         type="number"
         placeholder='17'
-        className='border border-black w-10'
+        className='border border-black w-20'
         value={currentCard.currentAchievements}
         onChange={(e) => {
           const newValue = parseInt(e.target.value);
@@ -140,7 +140,7 @@ export const EditForm = () => {
         autoFocus
         type="number"
         placeholder='17'
-        className='border border-black w-10'
+        className='border border-black w-20'
         value={currentCard.achievements}
         onChange={(e)=>{
           const copy = { ...currentCard }
@@ -172,7 +172,7 @@ export const EditForm = () => {
       </div>
     </fieldset>
 
-    <fieldset>
+    {/* <fieldset>
       <div className='pt-5 font-semibold'>
         <label htmlFor='story'>Story Complete?</label>
         <input
@@ -188,7 +188,7 @@ export const EditForm = () => {
         }}
          />
       </div>
-    </fieldset>
+    </fieldset> */}
 
     <fieldset>
       <div className='pt-5 font-semibold'>

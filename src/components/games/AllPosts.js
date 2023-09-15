@@ -79,15 +79,17 @@ export const AllPosts = () =>{
                 <div className='mt-2'>
                   <p>{card.currentAchievements} out of {card.achievements} achievements</p>
                   <p>So far, I've played {card.hours} hours...</p>
-                  <p>Main Story Complete?: {card.storyComplete ? 'Heck yeah!' : 'Not yet'}</p>
-                  <p>Fully Finished?: {card.fullyFinished ? 'HELL YEAH!' : 'Nope'}</p>
+                  {/* <p>Main Story Complete?: {card.storyComplete ? 'Heck yeah!' : 'Not yet'}</p> */}
+                  <p>Fully Finished?: {card.fullyFinished ? 'YEAH!' : 'Not yet'}</p>
                 </div>
     
-                <div className='text-black-500 border border-black rounded-lg mt-4'>
-                  Notes:
-                  <p className='text-black-500'>{card.notes}</p>
+                <br></br>
+                <div>Notes:</div>
+                <div className='border border-black rounded-lg mt-4'>
+                  
+                  <textarea className='bg-red-200 rounded-lg w-full h-20'>{card.notes}</textarea>
                 </div>
-                <div className='flex justify-center text-md'>Posted by: {card.postedByUser.name}</div>
+                <div w-60 h-40 className='flex justify-center text-md'>Posted by: {card.postedByUser.name}</div>
                   {card.fullyFinished && (
                     <div className='flex justify-center mt-3'> 
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-9 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -126,11 +126,12 @@ export const GameList=()=> {
               </div>
   
               <div className='mt-2'>
-              <p className="flex items-center space-x-2">
-                
-              {card.achievements > 0? <p>{card.currentAchievements} out of {card.achievements} achievements</p> : ""}
-                  {card.hours > 0? <p>So far, I've played {card.hours} hours...</p> : ""}
-              </p>
+              <article className="flex items-center space-x-2">
+                <div>{card.achievements > 0? <p>{card.currentAchievements} out of {card.achievements} achievements</p> : ""}</div>
+              </article>
+              <article className="flex items-center space-x-2">
+                <div>{card.hours > 0? <p>So far, I've played {card.hours} hours...</p> : ""} </div>
+              </article>
                 {/* <p>Main Story Complete?: {card.storyComplete ? 'Heck yeah!' : 'Not yet'}</p> */}
                 <p>Fully Finished?: {card.fullyFinished ? 'YEAH!' : 'Not yet'}</p>
               </div>

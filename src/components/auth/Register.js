@@ -11,7 +11,7 @@ export const Register = (props) =>{ //props as a parameter?
     let navigate = useNavigate()
 
     const registerNewUser = () =>{
-        return fetch("https://quest-keeper-api-esbux.ondigitalocean.app/users",{
+        return fetch("https://quest-keeper-api.vercel.app/users",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -33,7 +33,7 @@ export const Register = (props) =>{ //props as a parameter?
 
     const handleRegister = (e) => {
         e.preventDefault()
-        return fetch(`https://quest-keeper-api-esbux.ondigitalocean.app/users?email=${user.email}`)
+        return fetch(`https://quest-keeper-api.vercel.app/users?email=${user.email}`)
             .then(res => res.json())
             .then(response => {
                 if (response.length > 0) {

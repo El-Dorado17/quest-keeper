@@ -18,13 +18,12 @@ export const GameList=()=> {
   const loggedInUserId = questUserObject.id; 
 
   useEffect(()=>{
-    fetch("https://quest-keeper-api-esbux.ondigitalocean.app/cards?userId=${loggedInUserId}") 
+    fetch("https://quest-keeper-api.vercel.app/cards?userId=${loggedInUserId}") 
       .then((response) => response.json())
       .then((cardsArray) => {
         const updatedCardsArray = cardsArray.map((card) => ({
           ...card,
           count: parseInt(localStorage.getItem(card.id)) || 0, // Initialize count from localStorage
-          // platform: card.platform.id // Assuming platformId holds the ID of the platform
         }));
         setCards(updatedCardsArray);
         setFilteredCards(updatedCardsArray)
@@ -34,42 +33,32 @@ export const GameList=()=> {
 
   useEffect(
     () => {
-      fetch("https://quest-keeper-api-esbux.ondigitalocean.app/platforms")
+      fetch("https://quest-keeper-api.vercel.app/platforms")
         .then((response) => response.json())
         .then((platformArray) => {
           setPlatforms(platformArray);
         });
     },
-    [] // When this array is empty, you are observing initial component state
+    []
   );
 
   useEffect(() => {
-    fetch("https://quest-keeper-api-esbux.ondigitalocean.app/users")
+    fetch("https://quest-keeper-api.vercel.app/users")
       .then((response) => response.json())
       .then((userArray) => {
         setUsers(userArray);
       });
   }, []);
 
-
-
-
-
-
-
-
-
-
-
   const deleteButton = (cardObj) => {
     return (
       <button
         className="DeleteButton bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded inline-flex items-center"
         onClick={() => {
-          fetch(`https://quest-keeper-api-esbux.ondigitalocean.app/cards/${cardObj.id}`, {
+          fetch(`https://quest-keeper-api.vercel.app/cards/${cardObj.id}`, {
             method: "DELETE",
           }).then(() => {
-            fetch("https://quest-keeper-api-esbux.ondigitalocean.app/cards")
+            fetch("https://quest-keeper-api.vercel.app/cards")
               .then((response) => response.json())
               .then((cardArray) => {
                 setCards(cardArray);
@@ -121,42 +110,55 @@ export const GameList=()=> {
               
               <div className='text-black-500 font-semibold flex justify-end'>
                 Platform: {platforms.find(platform => platform.id === card.platform)?.name}
-                <br/>
+                  <br/>
                 Game: {card.title}
               </div>
-  
+
               <div className='mt-2'>
-              <article className="flex items-center space-x-2">
-                <div>{card.achievements > 0? <p>{card.currentAchievements} out of {card.achievements} achievements</p> : ""}</div>
-              </article>
-              <article className="flex items-center space-x-2">
-                <div>{card.hours > 0? <p>So far, I've played {card.hours} hours...</p> : ""} </div>
-              </article>
-                {/* <p>Main Story Complete?: {card.storyComplete ? 'Heck yeah!' : 'Not yet'}</p> */}
-                <p>Fully Finished?: {card.fullyFinished ? 'YEAH!' : 'Not yet'}</p>
+                <article className="flex items-center space-x-2">
+                  <div>
+                    {card.achievements > 0? <p>{card.currentAchievements} out of {card.achievements} achievements</p> : ""}
+                  </div>
+                </article>
+
+                <article className="flex items-center space-x-2">
+                  <div>
+                    {card.hours > 0? <p>So far, I've played {card.hours} hours...</p> : ""} 
+                  </div>
+                </article>
+                  <p> 
+                    Fully Finished?: {card.fullyFinished ? 'YEAH!' : 'Not yet'}
+                  </p>
               </div>
-              <br></br>
-              <div>  Notes:</div>
+
+              <br/>
+
+              <div>  
+                Notes:
+              </div>
+
               <div className=' border border-black rounded-lg mt-4'>
-              
-                <textarea className='bg-red-200 rounded-lg w-full h-20'>{card.notes}</textarea>
+                <textarea className='bg-red-200 rounded-lg w-full h-20'>
+                  {card.notes}
+                </textarea>
               </div>
+
               <div className='flex justify-between pt-4'>
                   {editButton(card)}
                   {deleteButton(card)}
-
               </div>
+
               {card.fullyFinished && (
-                    <div className='flex justify-center mt-3'> 
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-9 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                     </div>
+                <div className='flex justify-center mt-3'> 
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-9 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
   )}
             </section>
           );
         })}
-      </article>
+        </article>
       </section>
     </>
   );

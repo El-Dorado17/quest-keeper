@@ -36,7 +36,7 @@ export const GameForm=()=> {
 
   */
   useEffect(() => {
-    fetch("https://quest-keeper-api-esbux.ondigitalocean.app/platforms")
+    fetch("https://quest-keeper-api.vercel.app/platforms")
       .then((response) => response.json())
       .then((platformArray) => {
         setPlatforms(platformArray);
@@ -44,7 +44,7 @@ export const GameForm=()=> {
   }, []);
 
   useEffect(() => {
-    fetch("https://quest-keeper-api-esbux.ondigitalocean.app/users")
+    fetch("https://quest-keeper-api.vercel.app/users")
       .then((response) => response.json())
       .then((userArray) => {
         setUsers(userArray);
@@ -72,7 +72,7 @@ export const GameForm=()=> {
     };
 
     // TODO: Perform the fetch() to POST the object to the API
-    return fetch("https://quest-keeper-api-esbux.ondigitalocean.app/cards", {
+    return fetch("https://quest-keeper-api.vercel.app/cards", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

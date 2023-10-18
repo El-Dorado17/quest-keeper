@@ -25,7 +25,7 @@ export const AllPosts = () =>{
 //    const loggedInUserName = questUserObject.name; 
   
     useEffect(()=>{
-      fetch("https://quest-keeper-api-esbux.ondigitalocean.app/cards") //!  ?_expand=platform   not working 
+      fetch("https://quest-keeper-api.vercel.app/cards") //!  ?_expand=platform   not working 
         .then((response) => response.json())
         .then((cardsArray) => {
           const updatedCardsArray = cardsArray.map((card) => ({
@@ -40,7 +40,7 @@ export const AllPosts = () =>{
   
     useEffect(
       () => {
-        fetch("https://quest-keeper-api-esbux.ondigitalocean.app/platforms")
+        fetch("https://quest-keeper-api.vercel.app/platforms")
           .then((response) => response.json())
           .then((platformArray) => {
             setPlatforms(platformArray);
@@ -50,7 +50,7 @@ export const AllPosts = () =>{
     );
   
     useEffect(() => {
-      fetch("https://quest-keeper-api-esbux.ondigitalocean.app/users")
+      fetch("https://quest-keeper-api.vercel.app/users")
         .then((response) => response.json())
         .then((userArray) => {
           setUsers(userArray);

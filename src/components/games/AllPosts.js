@@ -8,19 +8,21 @@ This will house code for all users games as the intro page... MAKE IT HAPPEN
 
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+//import { useNavigate } from 'react-router-dom'
 
 export const AllPosts = () =>{
 
   
     const [cards, setCards] = useState([])
-    const [filteredCards, setFilteredCards] = useState([])
+   // const [filteredCards, setFilteredCards] = useState([])
     const [platforms, setPlatforms] = useState([])
+    // eslint-disable-next-line
     const [users, setUsers] = useState([])
   
-    const navigate = useNavigate()
+ //   const navigate = useNavigate()
   
     const localQuestUser = localStorage.getItem("quest_user")
+    // eslint-disable-next-line
     const questUserObject = JSON.parse(localQuestUser)
 //    const loggedInUserName = questUserObject.name; 
   
@@ -33,7 +35,6 @@ export const AllPosts = () =>{
             // platform: card.platform.id // Assuming platformId holds the ID of the platform
           }));
           setCards(updatedCardsArray);
-          setFilteredCards(updatedCardsArray)
         })
     }, [])
   
@@ -56,7 +57,6 @@ export const AllPosts = () =>{
           setUsers(userArray);
         });
     }, []);
-  
   
   
   
@@ -87,9 +87,9 @@ export const AllPosts = () =>{
                 <div>Notes:</div>
                 <div className='border border-black rounded-lg mt-4'>
                   
-                  <textarea className='bg-red-200 rounded-lg w-full h-20'>{card.notes}</textarea>
+                  <textarea className='bg-red-200 rounded-lg w-full h-20' defaultValue={card.notes}/>
                 </div>
-                <div w-60 h-40 className='flex justify-center text-md'>Posted by: {card.postedByUser.name}</div>
+                <div  className='flex justify-center text-md'>Posted by: {card.postedByUser.name}</div>
                   {card.fullyFinished && (
                     <div className='flex justify-center mt-3'> 
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-9 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">

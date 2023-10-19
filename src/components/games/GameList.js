@@ -6,8 +6,10 @@ import { useNavigate } from 'react-router-dom'
 
 export const GameList=()=> {
   const [cards, setCards] = useState([])
+  // eslint-disable-next-line
   const [filteredCards, setFilteredCards] = useState([])
   const [platforms, setPlatforms] = useState([])
+  // eslint-disable-next-line
   const [users, setUsers] = useState([])
 
 
@@ -18,6 +20,7 @@ export const GameList=()=> {
   const loggedInUserId = questUserObject.id; 
 
   useEffect(()=>{
+    // eslint-disable-next-line
     fetch("https://quest-keeper-api.vercel.app/cards?userId=${loggedInUserId}") 
       .then((response) => response.json())
       .then((cardsArray) => {
@@ -138,9 +141,7 @@ export const GameList=()=> {
               </div>
 
               <div className=' border border-black rounded-lg mt-4'>
-                <textarea className='bg-red-200 rounded-lg w-full h-20'>
-                  {card.notes}
-                </textarea>
+                <textarea className='bg-red-200 rounded-lg w-full h-20' defaultValue={card.notes}/>
               </div>
 
               <div className='flex justify-between pt-4'>

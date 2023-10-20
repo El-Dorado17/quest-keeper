@@ -21,7 +21,7 @@ export const GameList=()=> {
 
   useEffect(()=>{
     // eslint-disable-next-line
-    fetch("https://quest-keeper-api.vercel.app/cards?userId=${loggedInUserId}") 
+    fetch(`https://quest-keeper-api.vercel.app/cards?userId=${loggedInUserId}`) 
       .then((response) => response.json())
       .then((cardsArray) => {
         const updatedCardsArray = cardsArray.map((card) => ({

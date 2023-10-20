@@ -72,17 +72,27 @@ export const GameForm=()=> {
     };
 
     // TODO: Perform the fetch() to POST the object to the API
-    return fetch("https://quest-keeper-api.vercel.app/cards", {
+    fetch("https://quest-keeper-api.vercel.app/cards", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(cardObjectToSendToAPI),
     })
-      .then((response) => response.json())
-      .then(() => {
-        navigate("/gamelist"); 
-      });
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then(() => {
+      navigate("/gamelist");
+    })
+    .catch((error) => {
+      console.error("Error in fetch:", error);
+    });
+    
+    
   };
 
 

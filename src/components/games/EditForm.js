@@ -21,7 +21,7 @@ export const EditForm = () => {
   // Fetch card data based on cardId when component mounts
   useEffect(() => {
     // Fetch card data using cardId and update the state
-      fetch(`https://quest-keeper-api.vercel.app/cards/${cardId}`) //
+      fetch(`https://quest-keeper-api.vercel.app/cards/${cardId}`) //https://quest-keeper-api.vercel.app/cards
         .then(response => response.json())
         .then(cardData => setCurrentCard(cardData));
   }, [cardId]);

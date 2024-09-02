@@ -10,7 +10,7 @@ export const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault()
 
-        return fetch(`https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-apiusers?email=${email}`)
+        return fetch(`https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-api/users?email=${email}`)
             .then(res => res.json())
             .then(foundUsers => {
                 if (foundUsers.length === 1) {

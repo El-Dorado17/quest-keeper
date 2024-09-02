@@ -11,7 +11,7 @@ export const Register = (props) =>{ //props as a parameter?
     let navigate = useNavigate()
 
     const registerNewUser = () =>{
-        return fetch("https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-apiusers",{
+        return fetch("https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-api/users",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -33,7 +33,7 @@ export const Register = (props) =>{ //props as a parameter?
 
     const handleRegister = (e) => {
         e.preventDefault()
-        return fetch(`https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-apiusers?email=${user.email}`)
+        return fetch(`https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-api/users?email=${user.email}`)
             .then(res => res.json())
             .then(response => {
                 if (response.length > 0) {

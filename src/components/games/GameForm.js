@@ -36,7 +36,7 @@ export const GameForm=()=> {
 
   */
   useEffect(() => {
-    fetch("https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-apiplatforms")
+    fetch("https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-api/platforms")
       .then((response) => response.json())
       .then((platformArray) => {
         setPlatforms(platformArray);
@@ -44,7 +44,7 @@ export const GameForm=()=> {
   }, []);
 
   useEffect(() => {
-    fetch("https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-apiusers")
+    fetch("https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-api/users")
       .then((response) => response.json())
       .then((userArray) => {
         setUsers(userArray);
@@ -72,7 +72,7 @@ export const GameForm=()=> {
     };
 
     // TODO: Perform the fetch() to POST the object to the API
-    fetch("https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-apicards", {
+    fetch("https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-api/cards", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

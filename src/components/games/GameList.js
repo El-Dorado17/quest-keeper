@@ -21,7 +21,7 @@ export const GameList=()=> {
 
   useEffect(()=>{
     // eslint-disable-next-line
-    fetch(`https://quest-keeper-api.vercel.app/cards?userId=${loggedInUserId}`) 
+    fetch(`https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-apicards?userId=${loggedInUserId}`) 
       .then((response) => response.json())
       .then((cardsArray) => {
         const updatedCardsArray = cardsArray.map((card) => ({
@@ -36,7 +36,7 @@ export const GameList=()=> {
 
   useEffect(
     () => {
-      fetch("https://quest-keeper-api.vercel.app/platforms")
+      fetch("https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-apiplatforms")
         .then((response) => response.json())
         .then((platformArray) => {
           setPlatforms(platformArray);
@@ -46,7 +46,7 @@ export const GameList=()=> {
   );
 
   useEffect(() => {
-    fetch("https://quest-keeper-api.vercel.app/users")
+    fetch("https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-apiusers")
       .then((response) => response.json())
       .then((userArray) => {
         setUsers(userArray);
@@ -58,10 +58,10 @@ export const GameList=()=> {
       <button
         className="DeleteButton bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded inline-flex items-center"
         onClick={() => {
-          fetch(`https://quest-keeper-api.vercel.app/cards/${cardObj.id}`, {
+          fetch(`https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-apicards/${cardObj.id}`, {
             method: "DELETE",
           }).then(() => {
-            fetch("https://quest-keeper-api.vercel.app/cards")
+            fetch("https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-apicards")
               .then((response) => response.json())
               .then((cardArray) => {
                 setCards(cardArray);

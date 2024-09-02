@@ -21,7 +21,7 @@ export const EditForm = () => {
   // Fetch card data based on cardId when component mounts
   useEffect(() => {
     // Fetch card data using cardId and update the state
-      fetch(`https://quest-keeper-api.vercel.app/cards/${cardId}`) //https://quest-keeper-api.vercel.app/cards
+      fetch(`https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-apicards/${cardId}`) //https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-apicards
         .then(response => response.json())
         .then(cardData => setCurrentCard(cardData));
   }, [cardId]);
@@ -30,7 +30,7 @@ export const EditForm = () => {
 
   // Fetch platforms data
   useEffect(() => {
-    fetch("https://quest-keeper-api.vercel.app/platforms")
+    fetch("https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-apiplatforms")
       .then((response) => response.json())
       .then((platformArray) => {
         setPlatforms(platformArray);
@@ -43,7 +43,7 @@ export const EditForm = () => {
     event.preventDefault();
 
     // TODO: Perform the fetch() to update the card data
-    fetch(`https://quest-keeper-api.vercel.app/cards/${cardId}`, {
+    fetch(`https://quest-keeper-v2-u2fsc.ondigitalocean.app/quest-keeper-apicards/${cardId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
